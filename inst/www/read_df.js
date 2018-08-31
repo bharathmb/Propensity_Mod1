@@ -33,7 +33,7 @@ $(document).ready(function(){
     }, function(session){
       session.getConsole(function(output){
         $("#output code").text(output);		
-     
+      add_var_list();
     }).fail(function(){
       alert("Server error: " + req.responseText);
     });        
