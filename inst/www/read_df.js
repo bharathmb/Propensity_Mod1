@@ -69,8 +69,8 @@ $(document).ready(function(){
     }, function(session){
         session.getObject(function(data){
           // vars = $("#output").text(outtxt); 
-		  for (var i=0; i < vars.length;++i){
-			addOption(document.drop_list.DropList, vars[i], vars[i]);
+		  for (var i=0; i < data.length;++i){
+			addOption(document.drop_list.DropList, data[i], data[i]);
 			}
         });
 		alert("imp_var_list equals: " );
