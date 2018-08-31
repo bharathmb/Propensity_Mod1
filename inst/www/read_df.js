@@ -86,22 +86,25 @@ $(document).ready(function(){
 				function plot_graph()
 			{
 				alert("inside Plot graph");
-				var vars;
-				var req = ocpu.call("top_var_graph", {
-				"target.var.name" : "diabeties"
-			}, 
-			function(session){
-				session.getObject(function(data){
-				//$("#output code").text(data);	
-				alert("trying to plot" );
-				$("#plotdiv").rplot(req)
-
-				}).fail(function(){
-					alert("R returned an error in graph: " + req.responseText);
-					});
-				});
 				
-				}
+				$("#plotdiv").rplot("top_var_graph", {
+					"target.var.name" : "diabeties"});
+		
+			// var req = ocpu.call("top_var_graph", {
+			//	"target.var.name" : "diabeties"
+			//}, 
+			//function(session){
+			//	session.getObject(function(data){
+			//	//$("#output code").text(data);	
+			//	alert("trying to plot" );
+			//	$("#plotdiv").rplot(req);
+            //
+			//	}).fail(function(){
+			//		alert("R returned an error in graph: " + req.responseText);
+			//		});
+			//	});
+				
+			}
 			//SIGNIFICANT GRAPH CALL ENDS
 		
 		
