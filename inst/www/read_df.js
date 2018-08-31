@@ -67,16 +67,17 @@ $(document).ready(function(){
 	 var req = ocpu.call("imp_var_list", {
         "target.var.name" : "diabeties"
     }, function(session){
-        session.getConsole(function(outtxt){
-           vars = $("#output").text(outtxt); 
+        session.getObject(function(data){
+          // vars = $("#output").text(outtxt); 
+		  for (var i=0; i < vars.length;++i){
+			addOption(document.drop_list.DropList, vars[i], vars[i]);
+			}
         });
 		alert("imp_var_list equals: " );
     });
 	req.fail(function(){
 		alert("R returned an error: " + req.responseText);
 		});
-	for (var i=0; i < vars.length;++i){
-	addOption(document.drop_list.DropList, vars[i], vars[i]);
-	}
+	
 	});
 });
