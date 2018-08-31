@@ -15,7 +15,7 @@ read_csv<-function(filename)
   #df_full<-utils::read.csv(paste("c:/opencpuapp_ip/",substr(filename,13,nchar(filename)),".csv",sep=""), header = TRUE, stringsAsFactors = FALSE );
     
   list(
-	message = paste("hello ", paste("c:/opencpuapp_ip/",substr(filename,13,nchar(filename)),".csv",,sep=""), "! This is", R.Version()$version.string)
+	message = paste("hello ", paste("c:/opencpuapp_ip/",substr(filename,13,nchar(filename)),".csv",sep="")
 	#message = paste("Read Successful" )
 	)
 	df_full
