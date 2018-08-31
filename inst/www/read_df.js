@@ -54,31 +54,31 @@ $(document).ready(function(){
     uploadcsv(filename);        
   });
   
-// function addOption(selectbox,text,value )
-//	{
-//		var optn = document.createElement("OPTION");
-//		optn.text = text;
-//		optn.value = value;
-//		selectbox.options.add(optn);
-//	}
-//	
-//	
-//	$("#addOption_list").on("click",function (){
-//	 var vars;
-//	 var req = ocpu.call("imp_var_list", {
-//       "target.var.name" : "diabeties"
-//   }, function(session){
-//       session.getObject(function(data){
-//         // vars = $("#output").text(outtxt); 
-//		  for (var i=0; i < data.length;++i){
-//			addOption(document.drop_list.DropList, data[i], data[i]);
-//			}
-//       });
-//		alert("imp_var_list equals: " );
-//   });
-//	req.fail(function(){
-//		alert("R returned an error: " + req.responseText);
-//		});
-//	
-//	});
+ function addOption(selectbox,text,value )
+	{
+		var optn = document.createElement("OPTION");
+		optn.text = text;
+		optn.value = value;
+		selectbox.options.add(optn);
+	}
+	
+	
+	$("#addOption_list").on("click",function (){
+	 var vars;
+	 var req = ocpu.call("imp_var_list", {
+       "target.var.name" : "diabeties"
+   }, function(session){
+       session.getObject(function(data){
+         // vars = $("#output").text(outtxt); 
+		  for (var i=0; i < data.length;++i){
+			addOption(document.drop_list.DropList, data[i], data[i]);
+			}
+       });
+		alert("imp_var_list equals: " );
+   });
+	req.fail(function(){
+		alert("R returned an error: " + req.responseText);
+		});
+	
+	});
 });
