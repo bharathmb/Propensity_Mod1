@@ -54,6 +54,7 @@ $(document).ready(function(){
     uploadcsv(filename);        
   });
   
+  
  function addOption(selectbox,text,value )
 	{
 		var optn = document.createElement("OPTION");
@@ -62,8 +63,8 @@ $(document).ready(function(){
 		selectbox.options.add(optn);
 	}
 	
-	
 	$("#addOption_list").on("click",function (){
+	 alert("inside Add Options");
 	 var vars;
 	 var req = ocpu.call("imp_var_list", {
        "target.var.name" : "diabeties"
