@@ -57,14 +57,15 @@ $(document).ready(function(){
 				//for (var i=0; i < data.length;++i){
 				//addOption(document.drop_list.DropList, data[i], data[i]);
 				}
-			});	
+				)
+			}
 			alert("imp_var_list equals: " );
 			);
 				req.fail(function(){
 					alert("R returned an error in var_list: " + req.responseText);
 					});
 				
-				};
+				}
 				
 	
 		//VAR LIST CALL ENDS
