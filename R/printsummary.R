@@ -29,7 +29,7 @@ printsummary <- function(df_full){
   write.csv(test_from_user,"C:/opencpuapp_ip/test_comp.csv");
   
   #print
-  print(paste("hello ", "c:/opencpuapp_ip/",substr("c:/fakepath/train_comp.csv",13,nchar("c:/fakepath/train_comp.csv")),sep=""), "! This is", R.Version()$version.string)
+  print(paste("c:/opencpuapp_ip/",substr("c:/fakepath/train_comp.csv",13,nchar("c:/fakepath/train_comp.csv")),sep=""))
   #print(summary(df_full))
   invisible()
 }
