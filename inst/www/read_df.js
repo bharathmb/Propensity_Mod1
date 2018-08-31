@@ -7,7 +7,7 @@ $(document).ready(function(){
 
     //perform the request
     var req = ocpu.call("read_csv", {
-      file : filename
+      "file" : filename
     }, function(session){
       //on success call printsummary()
       printsummary(session);
@@ -29,7 +29,7 @@ $(document).ready(function(){
 	  alert("inside printsummary....");
     //perform the request
     var req = ocpu.call("printsummary", {
-      df_full : mydata
+      "df_full" : mydata
     }, function(session){
       session.getConsole(function(output){
         $("#output code").text(output);
@@ -53,31 +53,32 @@ $(document).ready(function(){
     
     uploadcsv(filename);        
   });
-  function addOption(selectbox,text,value )
-	{
-		var optn = document.createElement("OPTION");
-		optn.text = text;
-		optn.value = value;
-		selectbox.options.add(optn);
-	}
-	
-	
-	$("#addOption_list").on("click",function (){
-	 var vars;
-	 var req = ocpu.call("imp_var_list", {
-        "target.var.name" : "diabeties"
-    }, function(session){
-        session.getObject(function(data){
-          // vars = $("#output").text(outtxt); 
-		  for (var i=0; i < data.length;++i){
-			addOption(document.drop_list.DropList, data[i], data[i]);
-			}
-        });
-		alert("imp_var_list equals: " );
-    });
-	req.fail(function(){
-		alert("R returned an error: " + req.responseText);
-		});
-	
-	});
+  
+// function addOption(selectbox,text,value )
+//	{
+//		var optn = document.createElement("OPTION");
+//		optn.text = text;
+//		optn.value = value;
+//		selectbox.options.add(optn);
+//	}
+//	
+//	
+//	$("#addOption_list").on("click",function (){
+//	 var vars;
+//	 var req = ocpu.call("imp_var_list", {
+//       "target.var.name" : "diabeties"
+//   }, function(session){
+//       session.getObject(function(data){
+//         // vars = $("#output").text(outtxt); 
+//		  for (var i=0; i < data.length;++i){
+//			addOption(document.drop_list.DropList, data[i], data[i]);
+//			}
+//       });
+//		alert("imp_var_list equals: " );
+//   });
+//	req.fail(function(){
+//		alert("R returned an error: " + req.responseText);
+//		});
+//	
+//	});
 });
