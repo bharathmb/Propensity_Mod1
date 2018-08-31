@@ -13,6 +13,7 @@ printsummary <- function(df_full){
 	#
 	#
 	#
+	write.csv(df_full,"C:/opencpuapp_ip/cleaned_data.csv");
 	
   ## 80% of the sample size
   smp_size <- floor(0.8 * nrow(df_full))
