@@ -1,4 +1,3 @@
-//init this script when the page has loaded
 $(document).ready(function(){
   
   function uploadcsv(filename){
@@ -42,17 +41,18 @@ $(document).ready(function(){
   
   $("#submitbutton").on("click", function(){
     
-	 
-        //disable the button to prevent multiple clicks
-        $("#submitbutton").attr("disabled", "disabled");
-        
-        //create the plot area on the plotdiv element
-        var req = $("#plotdiv").rplot("bostonhist", {
-          variable : $("#variable").val(),
+	alert("inside script....");
+    //arguments
+    //read the value for 'filename'
+	var filename = $("#uploadFile").val();
+    
+    if(!filename){
+      alert("No file selected.");
+      return;
+    }
     
     uploadcsv(filename);        
   });
-  
   function addOption(selectbox,text,value )
 	{
 		var optn = document.createElement("OPTION");
@@ -61,18 +61,22 @@ $(document).ready(function(){
 		selectbox.options.add(optn);
 	}
 	
+	
 	$("#addOption_list").on("click",function (){
-	var req = ocpu.rpc("imp_var_list",{
-		target.var.name : "diabeties"
-		},function(output)
-		{
-		var vars=Object.values(output);
-		alert("imp_var_list equals: " + output);
-		});
-		req.fail(function(){
+	 var vars;
+	 var req = ocpu.call("imp_var_list", {
+        "target.var.name" : "diabeties"
+    }, function(session){
+        session.getConsole(function(outtxt){
+           vars = $("#output").text(outtxt); 
+        });
+		alert("imp_var_list equals: " );
+    });
+	req.fail(function(){
 		alert("R returned an error: " + req.responseText);
 		});
 	for (var i=0; i < vars.length;++i){
 	addOption(document.drop_list.DropList, vars[i], vars[i]);
 	}
+	});
 });
