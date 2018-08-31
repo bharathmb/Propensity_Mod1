@@ -53,10 +53,14 @@ $(document).ready(function(){
 			function(session){
 				session.getObject(function(data){
 				$("#output code").text(data);	
-				alert("imp_var_list ends: " );
-				// vars = $("#output").text(outtxt); 
-				//for (var i=0; i < data.length;++i){
-				//addOption(document.drop_list.DropList, data[i], data[i]);
+				alert("imp_var_list ends: trying to append" );
+				
+				for (var i=0; i < data.length;++i)
+				{
+					alert("inside_for" + i);
+					addOption(document.drop_list.DropList, data[i], data[i]);
+				}
+
 				}).fail(function(){
 					alert("R returned an error in var_list: " + req.responseText);
 					});
