@@ -89,6 +89,7 @@ $(document).ready(function(){
 				
 				$("#plotdiv").rplot("top_var_graph", {
 					"target.var.name" : "diabeties"});
+				alert("plotted");
 		
 			// var req = ocpu.call("top_var_graph", {
 			//	"target.var.name" : "diabeties"
