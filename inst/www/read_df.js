@@ -10,8 +10,10 @@ $(document).ready(function(){
       file : filename
     }, function(session){
       //on success call printsummary()
-      printsummary(session);
-    });
+      //printsummary(session);
+      session.getConsole(function(output){
+        $("#output code").text(output);
+      });
     
     //if R returns an error, alert the error message
     req.fail(function(){
