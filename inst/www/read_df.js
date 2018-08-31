@@ -7,7 +7,7 @@ $(document).ready(function(){
 
     //perform the request
     var req = ocpu.call("read_csv", {
-      "file" : filename
+      file : filename
     }, function(session){
       //on success call printsummary()
       printsummary(session);
@@ -29,7 +29,7 @@ $(document).ready(function(){
 	  alert("inside printsummary....");
     //perform the request
     var req = ocpu.call("printsummary", {
-      "df_full" : mydata
+      df_full : mydata
     }, function(session){
       session.getConsole(function(output){
         $("#output code").text(output);
