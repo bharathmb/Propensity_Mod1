@@ -57,8 +57,16 @@ $(document).ready(function(){
 				
 				for (var i=0; i < data.length;++i)
 				{
-					alert("inside_for" + i);
-					addOption(document.drop_list.DropList, data[i], data[i]);
+					alert("inside_for " + i);
+					var x = document.getElementById("DropList");
+					var option = document.createElement("option");
+					option.text = data[i];
+					x.add(option);
+					
+					alert("option " + i + " added")
+					
+					//addOption(document.DropList, data[i], data[i]);
+					
 				}
 
 				}).fail(function(){
