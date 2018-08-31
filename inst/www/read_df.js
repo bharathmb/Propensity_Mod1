@@ -32,7 +32,10 @@ $(document).ready(function(){
       df_full : mydata
     }, function(session){
       session.getConsole(function(output){
-        $("#output code").text(output);		
+        $("#output code").text(output);	
+	
+		//FUNCTION CALLS TO SIGNIFICANT VARIABLE LIST & GRAPHS PLOTS
+	  plot_graph();
       add_var_list();
     }).fail(function(){
       alert("Server error: " + req.responseText);
@@ -52,7 +55,7 @@ $(document).ready(function(){
 			}, 
 			function(session){
 				session.getObject(function(data){
-				$("#output code").text(data);	
+				//$("#output code").text(data);	
 				alert("imp_var_list ends: trying to append" );
 				
 				for (var i=0; i < data.length;++i)
@@ -78,6 +81,30 @@ $(document).ready(function(){
 				
 	
 		//VAR LIST CALL ENDS
+		
+		//Adding COde for Significant variables graph
+				function plot_graph()
+			{
+				alert("inside Plot graph");
+				var vars;
+				var req = ocpu.call("top_var_graph", {
+				"target.var.name" : "diabeties"
+			}, 
+			function(session){
+				session.getObject(function(data){
+				//$("#output code").text(data);	
+				alert("trying to plot" );
+				$("#plotdiv").rplot(req)
+
+				}).fail(function(){
+					alert("R returned an error in graph: " + req.responseText);
+					});
+				});
+				
+				}
+			//SIGNIFICANT GRAPH CALL ENDS
+		
+		
   
   $("#submitbutton").on("click", function(){
     
