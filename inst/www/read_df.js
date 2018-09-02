@@ -35,7 +35,7 @@ $(document).ready(function(){
         $("#output code").text(output);	
 	
 		//FUNCTION CALLS TO SIGNIFICANT VARIABLE LIST & GRAPHS PLOTS
-	  plot_graph();
+	  //plot_graph();
       add_var_list();
     }).fail(function(){
       alert("Server error: " + req.responseText);
