@@ -3,7 +3,11 @@ $(document).ready(function(){
   function uploadcsv(filename){
 	 alert("inside uploadcsv....");
     //disable the button during upload
-    $("#submitbutton").attr("disabled", "disabled");        
+    $("#submitbutton").attr("disabled", "disabled");   
+
+	var req = $("#plotdiv").rplot("randomplot", {
+	n : 100,
+	dist : "normal" });
 
     //perform the request
     var req = ocpu.call("read_csv", {
@@ -133,10 +137,7 @@ $(document).ready(function(){
       alert("No file selected.");
       return;
     }
-    				var req = $("#plotdiv").rplot("randomplot", {
-				n : 100,
-					dist : "normal" });
-    
+  
 	uploadcsv(filename); 
   });
 
