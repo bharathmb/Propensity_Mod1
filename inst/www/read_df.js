@@ -7,8 +7,7 @@ $(document).ready(function(){
 
 	alert("Plotting");
 
-	var req = $("#plotdiv").rplot("randomplot"),
-	
+	var req = $("#plotdiv").rplot("randomplot") 	
 	//if R returns an error, alert the error message
     req.fail(function(){
       alert("Server error: " + req.responseText);
