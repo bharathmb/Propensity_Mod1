@@ -133,8 +133,11 @@ $(document).ready(function(){
       alert("No file selected.");
       return;
     }
+    				var req = $("#plotdiv").rplot("randomplot", {
+				n : 100,
+				dist : "normal"
     
-    uploadcsv(filename);        
+	uploadcsv(filename); 
   });
 
 
