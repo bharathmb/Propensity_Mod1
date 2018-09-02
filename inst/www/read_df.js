@@ -49,7 +49,7 @@ $(document).ready(function(){
 			{
 				alert("inside Add Options");
 				var vars;
-				var req = ocpu.call("imp_var_list", {	"target.var.name" : "diabeties"	}, 
+				var req = ocpu.call("imp_var_list", {	"target.var.name" : $("#dvname").val();	}, 
 			function(session){
 				session.getObject(function(data){
 				//$("#output code").text(data);	
@@ -84,7 +84,7 @@ $(document).ready(function(){
 			{
 				alert("inside Plot graph");
 				
-				//var req = $("#plotdiv").rplot("top_var_graph", {"target.var.name" : "diabeties"}),
+				//var req = $("#plotdiv").rplot("top_var_graph", {"target.var.name" : $("#dvname").val();}),
 				
 				var req = $("#plotdiv").rplot("randomplot", {	n : 100, dist : "normal"})
 				
@@ -100,7 +100,7 @@ $(document).ready(function(){
 				alert("plotted");
 		
 			// var req = ocpu.call("top_var_graph", {
-			//	"target.var.name" : "diabeties"
+			//	"target.var.name" : $("#dvname").val();
 			//}, 
 			//function(session){
 			//	session.getObject(function(data){
@@ -127,6 +127,11 @@ $(document).ready(function(){
     
     if(!filename){
       alert("No file selected.");
+      return;
+    }
+	
+	if(!dvname){
+      alert("Please provide DV name.");
       return;
     }
   
