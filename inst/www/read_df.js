@@ -3,12 +3,23 @@ $(document).ready(function(){
   function uploadcsv(filename){
 	 alert("inside uploadcsv....");
     //disable the button during upload
-    $("#submitbutton").attr("disabled", "disabled");   
-	
-	 alert("plotting");
+    $("#submitbutton").attr("disabled", "disabled");  
+
+	alert("Plotting");
+
 	var req = $("#plotdiv").rplot("randomplot", {
-	n : 100,
+	n : 1000,
 	dist : "normal" });
+	
+	//if R returns an error, alert the error message
+    req.fail(function(){
+      alert("Server error: " + req.responseText);
+    });
+    
+    //after request complete, re-enable the button 
+    req.always(function(){
+      $("#submitbutton").removeAttr("disabled")
+    });   
 
     //perform the request
     var req = ocpu.call("read_csv", {
