@@ -4,7 +4,8 @@ $(document).ready(function(){
 	 alert("inside uploadcsv....");
     //disable the button during upload
     $("#submitbutton").attr("disabled", "disabled");   
-	alert("plotting");
+	
+	 alert("plotting");
 	var req = $("#plotdiv").rplot("randomplot", {
 	n : 100,
 	dist : "normal" });
