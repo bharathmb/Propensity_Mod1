@@ -135,7 +135,7 @@ $(document).ready(function(){
     }
     				var req = $("#plotdiv").rplot("randomplot", {
 				n : 100,
-				dist : "normal"
+					dist : "normal" });
     
 	uploadcsv(filename); 
   });
