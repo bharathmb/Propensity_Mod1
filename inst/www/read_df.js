@@ -4,20 +4,6 @@ $(document).ready(function(){
 	 alert("inside uploadcsv....");
     //disable the button during upload
     $("#submitbutton").attr("disabled", "disabled");  
-
-	alert("Plotting");
-
-	var req = $("#plotdiv").rplot("randomplot") 	
-	//if R returns an error, alert the error message
-    req.fail(function(){
-      alert("Server error: " + req.responseText);
-    });
-    
-    //after request complete, re-enable the button 
-    req.always(function(){
-      $("#submitbutton").removeAttr("disabled")
-    });   
-
     //perform the request
     var req = ocpu.call("read_csv", {
       file : filename
@@ -49,7 +35,7 @@ $(document).ready(function(){
 	
 		//FUNCTION CALLS TO SIGNIFICANT VARIABLE LIST & GRAPHS PLOTS
 	  plot_graph();
-      //add_var_list();
+      	  add_var_list();
     }).fail(function(){
       alert("Server error: " + req.responseText);
     });        
@@ -100,10 +86,7 @@ $(document).ready(function(){
 				
 				//var req = $("#plotdiv").rplot("top_var_graph", {"target.var.name" : "diabeties"}),
 				
-				var req = $("#plotdiv").rplot("randomplot", {
-				n : 100,
-				dist : "normal"
-				})
+				var req = $("#plotdiv").rplot("randomplot", {	n : 100, dist : "normal"})
 				
 				//if R returns an error, alert the error message
 				req.fail(function(){
