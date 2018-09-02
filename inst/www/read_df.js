@@ -7,9 +7,7 @@ $(document).ready(function(){
 
 	alert("Plotting");
 
-	var req = $("#plotdiv").rplot("randomplot", {
-	n : 1000,
-	dist : "normal" });
+	var req = $("#plotdiv").rplot("randomplot");
 	
 	//if R returns an error, alert the error message
     req.fail(function(){
