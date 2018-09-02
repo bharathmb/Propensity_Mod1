@@ -35,8 +35,8 @@ $(document).ready(function(){
         $("#output code").text(output);	
 	
 		//FUNCTION CALLS TO SIGNIFICANT VARIABLE LIST & GRAPHS PLOTS
-	  //plot_graph();
-      add_var_list();
+	  plot_graph();
+      //add_var_list();
     }).fail(function(){
       alert("Server error: " + req.responseText);
     });        
@@ -50,9 +50,7 @@ $(document).ready(function(){
 			{
 				alert("inside Add Options");
 				var vars;
-				var req = ocpu.call("imp_var_list", {
-				"target.var.name" : "diabeties"
-			}, 
+				var req = ocpu.call("imp_var_list", {	"target.var.name" : "diabeties"	}, 
 			function(session){
 				session.getObject(function(data){
 				//$("#output code").text(data);	
@@ -87,9 +85,14 @@ $(document).ready(function(){
 			{
 				alert("inside Plot graph");
 				
-				var req = $("#plotdiv").rplot("top_var_graph", {
-					"target.var.name" : "diabeties"});
-				        //if R returns an error, alert the error message
+				//var req = $("#plotdiv").rplot("top_var_graph", {"target.var.name" : "diabeties"}),
+				
+				var req = $("#plotdiv").rplot("randomplot", {
+				n : 100,
+				dist : "normal"
+				})
+				
+				//if R returns an error, alert the error message
 				req.fail(function(){
 				alert("Server error: " + req.responseText);
 				});
