@@ -87,8 +87,17 @@ $(document).ready(function(){
 			{
 				alert("inside Plot graph");
 				
-				$("#plotdiv").rplot("top_var_graph", {
+				var req = $("#plotdiv").rplot("top_var_graph", {
 					"target.var.name" : "diabeties"});
+				        //if R returns an error, alert the error message
+				req.fail(function(){
+				alert("Server error: " + req.responseText);
+				});
+				
+				//after request complete, re-enable the button 
+				req.always(function(){
+				$("#submitbutton").removeAttr("disabled")
+				});
 				alert("plotted");
 		
 			// var req = ocpu.call("top_var_graph", {
