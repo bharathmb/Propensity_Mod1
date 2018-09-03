@@ -5,7 +5,7 @@
 #' @export
 #' @param n numer of random values 
 #' @param dist one of "normal" or "uniform".
-randomplot <- function(){
+randomplot <- function(nfield,distfield){
   #input validation
     hist(rnorm(1000))
   invisible();  
