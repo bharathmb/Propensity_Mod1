@@ -4,22 +4,8 @@ $(document).ready(function(){
   
   $("#submitbutton").on("click", function(){
     
-	alert("inside script....");
-    //arguments
-    //read the value for 'filename'
-	var filename = $("#uploadFile").val();
-	dvname=$("#dvname").val()
-    
-    if(!filename){
-      alert("No file selected.");
-      return;
-    }
+	alert("inside plot script....");
 
-	
-	if(!dvname){
-      alert("Please provide DV name.");
-      return;
-    }
 	
 	    //var nfield = parseInt($("#nfield").val());
         //var distfield = $("#distfield").val();
