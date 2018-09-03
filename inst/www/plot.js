@@ -25,6 +25,7 @@ $(document).ready(function(){
         //var distfield = $("#distfield").val();
         
         //create the plot area on the plotdiv element
+	  alert("plotting");
         var req = $("#plotdiv").rplot("randomplot")
 
         //if R returns an error, alert the error message
