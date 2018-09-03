@@ -13,7 +13,7 @@ $(document).ready(function(){
 	 distfield="normal"
         //create the plot area on the plotdiv element
 	  alert("plotting");
-                var req = $("#plotdiv").rplot("randomplot", {
+                var req = $("#plotdiv1").rplot("randomplot", {
           n : nfield,
           dist : distfield
         })
