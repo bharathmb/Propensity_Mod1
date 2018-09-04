@@ -1,5 +1,5 @@
 
-Var_Profiling_pictograph <- function(target.var.name){
+top_var_graph <- function(target.var.name){
   data<- read.csv("C:/opencpuapp_ip/cleaned_data.csv")
   
   names(data)[names(data)==target.var.name] <- "DV"
