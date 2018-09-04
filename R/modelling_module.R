@@ -1,5 +1,6 @@
 
-modelling_module<-function(DV,model_selection){
+modelling_module<-function(DV,model_selection)
+{
   library(pROC)
   library(caret)
   
@@ -9,7 +10,7 @@ modelling_module<-function(DV,model_selection){
   model_evaluations<-setNames(data.frame(matrix(ncol = 9, nrow = 9)), c("tpr","fpr","tnr","fnr","recall","precision","f1score","accuracy","roc"))
   rownames(model_evaluations)<-c("lr","rf_rose","rf_over","rf_under","rf_both","gbm","svm","nn","nb")
   
-  k_stat_value<- function(fullmodel,train,test){
+  k_stat_value<- function(fullmodel,train,test,flag){
     n=10
     model_iteration_train <- fullmodel
     
@@ -17,8 +18,13 @@ modelling_module<-function(DV,model_selection){
     
     #Predictions
     #pred_train_iteration = predict(model_iteration_train, newdata = train, type =  'response')
-    pred_train_iteration = predict(model_iteration_train, newdata = train,type = 'response')
-    train_KStat = train #90 rows
+    if(flag=="n"){
+    pred_train_iteration = as.numeric(predict(model_iteration_train, newdata = train,type = 'response'))
+    }
+    if(flag=="y"){
+    pred_train_iteration = as.numeric(predict(model_iteration_train, newdata = train))
+    }
+     train_KStat = train #90 rows
     train_KStat$pred = pred_train_iteration
     pred_train_iteration
     summary(train)
@@ -202,7 +208,7 @@ modelling_module<-function(DV,model_selection){
     gbm_model = gbm(DV~.+0, data=train_gbm, 
                     shrinkage=0.01, distribution = 'bernoulli', cv.folds=5, n.trees=3000, verbose=F)
     #identifying threshold
-    threshold<-k_stat_value(gbm_model,train_gbm,test_gbm)
+    threshold<-k_stat_value(gbm_model,train_gbm,test_gbm,"n")
     
     #head(train_gbm)
     #summary(gbm_model)
@@ -220,7 +226,7 @@ modelling_module<-function(DV,model_selection){
     #library(ROCR)
     res = roc(test_gbm$DV, pred)
     plot(res)
-    auc(res)
+    #auc(res)
     
     ##library(e1071)
     ##install.packages("caret")
@@ -269,7 +275,7 @@ modelling_module<-function(DV,model_selection){
     test_lr<-test
     lr_model <- glm (DV ~ ., data =train_lr, family = binomial)
     #summary(model)
-    threshold<-k_stat_value(lr_model,train_lr,test_lr)
+    threshold<-k_stat_value(lr_model,train_lr,test_lr,"n")
     pred <- predict(lr_model, newdata=test_lr,
                     type = 'response')
     test_lr$predictedtype[pred>max(threshold)] <- as.numeric(1)
@@ -312,7 +318,7 @@ modelling_module<-function(DV,model_selection){
     
     treeimp <- randomForest(DV ~ ., data = train_rf, ntrees=100,importance=T)
     #Identifying threshold
-    threshold<-k_stat_value(treeimp,train_rf,test_rf)
+    threshold<-k_stat_value(treeimp,train_rf,test_rf,"n")
     pred.treeimb <- predict(treeimp, newdata = test_rf)
     roc.curve(test_rf$DV, pred.treeimb, plotit = F)
     important_variables <- variable_importance(treeimp,"n")
@@ -383,10 +389,10 @@ modelling_module<-function(DV,model_selection){
                         preProcess = c("center", "scale"),
                         tuneLength = 10)
     #Identifying threshold
-    #threshold<-Case_stat(svm_radial,train_svm,test_svm,n)
+    threshold<-k_stat_value(svm_radial,train_svm,test_svm,"y")
     
     test_pred <- as.numeric(predict(svm_radial,newdata = test_svm))
-    
+    test_pred <- predict(svm_radial,newdata = test_svm)
     
     #confusionMatrix(test_svm$predictedtype,test_svm$DV)
     
@@ -397,6 +403,6 @@ modelling_module<-function(DV,model_selection){
     important_variables  <- variable_importance(svm_radial,"y")
   }
   
-  
- list(important_variables$var_names)
-}
+  list(important_variables$var_names)
+
+ }
