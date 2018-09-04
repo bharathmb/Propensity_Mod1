@@ -123,7 +123,8 @@ $(document).ready(function(){
 	alert("inside script....");
     //arguments
     //read the value for 'filename'
-	var filename = $("#uploadFile").val();
+	//var filename = $("#uploadFile").val();
+	  var filename = $("#uploadFile")[0].files[0];
 	dvname=$("#dvname").val()
     
     if(!filename){
