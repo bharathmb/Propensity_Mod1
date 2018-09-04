@@ -9,6 +9,7 @@ $(document).ready(function(){
 	var dvname=$("#dvname").val()
 	
 	var isChecked = $('#select-1').prop('checked');
+	  alert(isChecked);
 
 		
     //perform the request
