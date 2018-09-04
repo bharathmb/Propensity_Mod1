@@ -184,7 +184,7 @@ top_var_graph <- function(target.var.name){
 
   library(plotly)
   
-  ggplotly(ggplot(b,aes(x=reorder(b$VARS,b$VariableImportance),y=b$VariableImportance)) +
+  ggplot(b,aes(x=reorder(b$VARS,b$VariableImportance),y=b$VariableImportance)) +
     geom_col(aes(fill=b$VariableImportance)) +  scale_fill_gradientn(colors = c("white", "darkblue"))+
     labs(x = "Variables", y ="Importance", title = "Variable Importance")+
     coord_flip()+theme(
@@ -196,5 +196,5 @@ top_var_graph <- function(target.var.name){
       panel.grid.minor = element_line(size = 0.25, linetype = 'solid',
                                       colour = "lightblue")
       
-    ))
+    )
 }
