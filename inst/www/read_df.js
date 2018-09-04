@@ -84,9 +84,9 @@ $(document).ready(function(){
 			{
 				alert("inside Plot graph");
 				
-				var req = $("#plotdiv").rplot("top_var_graph", {"target.var.name" : dvname});
+				//var req = $("#plotdiv").rplot("top_var_graph", {"target.var.name" : dvname});
 				
-				//var req = $("#plotdiv").rplot("randomplot", {	n : 100, dist : "normal"})
+				var req = $("#plotdiv").rplot("randomplot", {	nfield : 100, distfield : "normal"})
 				
 				//if R returns an error, alert the error message
 				req.fail(function(){
