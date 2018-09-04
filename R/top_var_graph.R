@@ -1,3 +1,4 @@
+
 Var_Profiling_pictograph <- function(target.var.name){
   data<- read.csv("C:/opencpuapp_ip/cleaned_data.csv")
   
@@ -178,7 +179,22 @@ Var_Profiling_pictograph <- function(target.var.name){
   c=a[,c("VARS","Rank")]
   graphics::par(mai=c(1,3,1,1))
   b=subset(a[,c("VARS","VariableImportance")],a$Rank<=10)
-  graphics::barplot(b$VariableImportance,main="Top 10 Variables", horiz=TRUE,xlab="VariableImportance",names.arg=b$VARS,las=1,col=grDevices::rainbow(10))
+  #graphics::barplot(b$VariableImportance,main="Top 10 Variables", horiz=TRUE,xlab="VariableImportance",names.arg=b$VARS,las=1,col=grDevices::rainbow(10))
 
+  library(plotly)
+  
+  ggplotly(ggplot(b,aes(x=reorder(b$VARS,b$VariableImportance),y=b$VariableImportance)) +
+    geom_col(aes(fill=b$VariableImportance)) +  scale_fill_gradientn(colors = c("white", "darkblue"))+
+    labs(x = "Variables", y ="Importance", title = "Variable Importance")+
+    coord_flip()+theme(
+      panel.background = element_rect(fill = "aliceblue",
+                                      colour = "lightblue",
+                                      size = 0.5),
+      panel.grid.major = element_line(size = 0.5, linetype = 'solid',
+                                      colour = "white"), 
+      panel.grid.minor = element_line(size = 0.25, linetype = 'solid',
+                                      colour = "lightblue")
+      
+    ))
   
 }
