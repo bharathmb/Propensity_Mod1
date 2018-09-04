@@ -3,8 +3,8 @@ modelling_module<-function(DV,model_selection){
   library(pROC)
   library(caret)
   
-	train<-read.csv("train_comp.csv")
-	test<-read.csv("test_comp.csv")
+	train<-read.csv("C:/opencpuapp_ip/train_comp.csv")
+	test<-read.csv("C:/opencpuapp_ip/test_comp.csv")
   
   model_evaluations<-setNames(data.frame(matrix(ncol = 9, nrow = 9)), c("tpr","fpr","tnr","fnr","recall","precision","f1score","accuracy","roc"))
   rownames(model_evaluations)<-c("lr","rf_rose","rf_over","rf_under","rf_both","gbm","svm","nn","nb")
