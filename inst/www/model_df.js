@@ -10,26 +10,26 @@ $(document).ready(function(){
 	
 	var isChecked=""
 	
-	if($('#select-1').prop('checked')==TRUE)
+	if($('#select-1').prop('checked')==true)
 		{
 		 isChecked="select-1"
-		} else if($('#select-2').prop('checked')==TRUE)
+		} else if($('#select-2').prop('checked')==true)
 		{
 		 isChecked="select-2"
-		} else if($('#select-3').prop('checked')==TRUE)
+		} else if($('#select-3').prop('checked')==true)
 		{
 		 isChecked="select-3"
-		} else if($('#select-4').prop('checked')==TRUE)
+		} else if($('#select-4').prop('checked')==true)
 		{
 		 isChecked="select-4"
-		} else if($('#select-5').prop('checked')==TRUE)
+		} else if($('#select-5').prop('checked')==true)
 		{
 		 isChecked="select-5"
-		} else if($('#select-6').prop('checked')==TRUE)
+		} else if($('#select-6').prop('checked')==true)
 		{
 		 isChecked="select-6"
 		}
-		else if($('#select-7').prop('checked')==TRUE)
+		else if($('#select-7').prop('checked')==true)
 		{
 		 isChecked="select-7"
 		}
@@ -56,5 +56,7 @@ $(document).ready(function(){
     });   
 
   });
+
+
   });
 
