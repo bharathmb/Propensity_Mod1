@@ -73,7 +73,7 @@ $(document).ready(function(){
 					//document.getElementById("message").innerHTML = "Having a Baby!!";
 					var x = document.getElementById("DropList").selectedIndex;
 					var y = document.getElementById("DropList").options;
-					switch(x):
+					switch(x){
 					case 0:
 						plot_graph_variable(y[x].text);
 						break;
@@ -86,7 +86,7 @@ $(document).ready(function(){
 					case 3:
 						plot_graph_variable(y[x].text);
 						break;
-						
+					}	
 				};
 				//plot_graph_variable()
 
