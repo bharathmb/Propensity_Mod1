@@ -68,6 +68,7 @@ $(document).ready(function(){
 					//addOption(document.DropList, data[i], data[i]);
 					
 				}
+				plot_graph_variable()
 
 				}).fail(function(){
 					alert("R returned an error in var_list: " + req.responseText);
@@ -115,7 +116,41 @@ $(document).ready(function(){
 				
 			}
 			//SIGNIFICANT GRAPH CALL ENDS
+	
+		function plot_graph_variable()
+			{
+				alert("inside variable Plot graph");
+				
+				var req = $("#plotdiv").rplot("randomplot", {	nfield : 100, distfield : "normal"})
+				
+				//var req = $("#plotdiv").rplot("top_var_graph", {"target.var.name" : dvname});
+				
+				//if R returns an error, alert the error message
+				req.fail(function(){
+				alert("Server error: " + req.responseText);
+				});
+				
+				//after request complete, re-enable the button 
+				req.always(function(){
+				$("#submitbutton").removeAttr("disabled")
+				});
+				alert("plotted");
 		
+			// var req = ocpu.call("top_var_graph", {
+			//	"target.var.name" : dvname;
+			//}, 
+			//function(session){
+			//	session.getObject(function(data){
+			//	//$("#output code").text(data);	
+			//	alert("trying to plot" );
+			//	$("#plotdiv").rplot(req);
+            //
+			//	}).fail(function(){
+			//		alert("R returned an error in graph: " + req.responseText);
+			//		});
+			//	});
+				
+			}
 		
   
   $("#submitbutton").on("click", function(){
