@@ -41,7 +41,7 @@ $(document).ready(function(){
 		
     //perform the request
     var req = ocpu.call("scoring_module", {
-      "DV" : dvname, "model_selection" :  isChecked
+	    "oos_path":oos_path, "DV" : dvname, "model_selection" :  isChecked
     }, function(session){
 		$("#output code2").text("Hurray! Scoring Completed... Find the results in c:/opencpuip_app/scored_dataset.csv");	
 		//get results and display
