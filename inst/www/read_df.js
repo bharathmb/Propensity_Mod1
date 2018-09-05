@@ -73,20 +73,9 @@ $(document).ready(function(){
 					//document.getElementById("message").innerHTML = "Having a Baby!!";
 					var x = document.getElementById("DropList").selectedIndex;
 					var y = document.getElementById("DropList").options;
-					switch(x){
-					case 0:
+					
 						plot_graph_variable(y[x].text);
-						break;
-					case 1:
-						plot_graph_variable(y[x].text);
-						break;
-					case 2:
-						plot_graph_variable(y[x].text);
-						break;
-					case 3:
-						plot_graph_variable(y[x].text);
-						break;
-					}	
+					
 				};
 				//plot_graph_variable()
 
