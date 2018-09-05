@@ -68,7 +68,7 @@ $(document).ready(function(){
 					//addOption(document.DropList, data[i], data[i]);
 					
 				}
-				plot_graph_variable()
+				//plot_graph_variable()
 
 				}).fail(function(){
 					alert("R returned an error in var_list: " + req.responseText);
