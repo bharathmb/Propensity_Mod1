@@ -68,6 +68,10 @@ $(document).ready(function(){
 					//addOption(document.DropList, data[i], data[i]);
 					
 				}
+				document.getElementById('DropList').onchange = function () {
+					//document.getElementById("message").innerHTML = "Having a Baby!!";
+					plot_graph_variable();
+				};
 				//plot_graph_variable()
 
 				}).fail(function(){
