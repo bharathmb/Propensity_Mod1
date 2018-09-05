@@ -61,6 +61,7 @@ $(document).ready(function(){
 					var x = document.getElementById("DropList");
 					var option = document.createElement("option");
 					option.text = data[i];
+					
 					x.add(option);
 					
 					alert("option " + i + " added")
@@ -70,7 +71,22 @@ $(document).ready(function(){
 				}
 				document.getElementById('DropList').onchange = function () {
 					//document.getElementById("message").innerHTML = "Having a Baby!!";
-					plot_graph_variable();
+					var x = document.getElementById("DropList").selectedIndex;
+					var y = document.getElementById("DropList").options;
+					switch(x):
+					case 0:
+						plot_graph_variable(y[x].text);
+						break;
+					case 1:
+						plot_graph_variable(y[x].text);
+						break;
+					case 2:
+						plot_graph_variable(y[x].text);
+						break;
+					case 3:
+						plot_graph_variable(y[x].text);
+						break;
+						
 				};
 				//plot_graph_variable()
 
@@ -121,11 +137,11 @@ $(document).ready(function(){
 			}
 			//SIGNIFICANT GRAPH CALL ENDS
 	
-		function plot_graph_variable()
+		function plot_graph_variable(data)
 			{
 				alert("inside variable Plot graph");
 				
-				var req = $("#plotdiv").rplot("randomplot", {	nfield : 100, distfield : "normal"})
+				var req = $("#plotdiv").rplot("randomplot", {	nfield : 100, distfield : "normal" , title : data})
 				
 				//var req = $("#plotdiv").rplot("top_var_graph", {"target.var.name" : dvname});
 				
