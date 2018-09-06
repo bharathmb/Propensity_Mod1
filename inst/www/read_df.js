@@ -8,7 +8,7 @@ $(document).ready(function(){
     var req = ocpu.call("read_csv", {
       file : filename
     }, function(session){
-		$("#status1").text("Wait till I clean it! for you");
+		$("#status1").text("Wait till I clean it for you!");
       //on success call printsummary()
       printsummary(session,dvname);
     });
