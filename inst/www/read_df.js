@@ -39,7 +39,6 @@ $(document).ready(function(){
 		//FUNCTION CALLS TO SIGNIFICANT VARIABLE LIST & GRAPHS PLOTS
 	  plot_graph();
       	  add_var_list();
-		  $("#status1").text("Hurray! Go on and look at the results now...");
     }).fail(function(){
       alert("Server error: " + req.responseText);
     });        
@@ -137,6 +136,7 @@ $(document).ready(function(){
 				//var req = $("#plotdiv").rplot("randomplot", {	nfield : 100, distfield : "normal" , title : data})
 				
 				var req = $("#plotdiv").rplot("variable_profiling_function", {dv : dvname, var: data});
+				 $("#status1").text("Hurray! Go on and look at the results now...");
 				
 				//if R returns an error, alert the error message
 				req.fail(function(){
