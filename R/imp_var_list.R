@@ -141,7 +141,6 @@ imp_var_list<- function(target.var.name){
   ##RESULTS
   
   data_binned <- dataBinning(data)
-  write.csv(data_binned,"data_after_binning.csv")
   
   allFiltRes <- univFiltRes(data_binned)
   
