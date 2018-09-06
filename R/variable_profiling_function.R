@@ -1,8 +1,8 @@
 
-variable_profiling_function  <- function(tar.var.name, dvname) {
+variable_profiling_function  <- function(dv, var) {
 dat = read.csv("c:/opencpuapp_ip/cleaned_data.csv")
-var1 = dat[,tar.var.name]
-dv = dat[,dvname]
+var1 = dat[,var]
+dv = dat[,dv]
   
   freq <- table(var1,dv)
   total <- freq[,"0"]+freq[,"1"]
