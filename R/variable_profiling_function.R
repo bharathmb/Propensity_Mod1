@@ -1,6 +1,6 @@
 
 variable_profiling_function  <- function(dv,var){
-  
+  library(ggplot)
   a <- read.csv("C:/opencpuapp_ip/cleaned_data.csv",stringsAsFactors = F)
   var = unlist(strsplit(var, "[.]"))[1]
   #a<- a[,!(colnames(a) %in% c("X","Price","Mileage"))]
