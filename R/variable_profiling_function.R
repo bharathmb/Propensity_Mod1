@@ -1,7 +1,7 @@
 
 variable_profiling_function <- function(dv,var){
       
-  a <- read.csv("cars.csv",stringsAsFactors = F)
+  a <- read.csv("C:/opencpuapp_ip/cleaned_data.csv",stringsAsFactors = F)
   #a<- a[,!(colnames(a) %in% c("X","Price","Mileage"))]
   colnames(a)[which(colnames(a)==dv)]="DV"
   dcf = aggregate(.~DV,data=a,sum)
