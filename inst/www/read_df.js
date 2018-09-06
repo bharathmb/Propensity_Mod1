@@ -130,9 +130,9 @@ $(document).ready(function(){
 			{
 				alert("inside variable Plot graph");
 				
-				var req = $("#plotdiv").rplot("randomplot", {	nfield : 100, distfield : "normal" , title : data})
+				//var req = $("#plotdiv").rplot("randomplot", {	nfield : 100, distfield : "normal" , title : data})
 				
-				//var req = $("#plotdiv").rplot("top_var_graph", {"target.var.name" : dvname});
+				var req = $("#plotdiv").rplot("variable_profiling_function", {"dv" : dvname, "var": data});
 				
 				//if R returns an error, alert the error message
 				req.fail(function(){
