@@ -1,21 +1,8 @@
-rm(list=ls())
-#install.packages("extrafont")
-library(extrafont)
-options(java.home="C:\\Program Files\\Java\\jre1.8.0_181\\")
-library(HybridFS)
-library(stringr)
-library(ggplot2)
 
-trial1="Cruise"
-trial2="Leather"
-
-var_prof(trial1,trial2)
-
-
-var_prof <- function(dv,var){
+variable_profiling_function <- function(dv,var){
       
   a <- read.csv("cars.csv",stringsAsFactors = F)
-  a<- a[,!(colnames(a) %in% c("X","Price","Mileage"))]
+  #a<- a[,!(colnames(a) %in% c("X","Price","Mileage"))]
   colnames(a)[which(colnames(a)==dv)]="DV"
   dcf = aggregate(.~DV,data=a,sum)
   dcf$rowsums <- rowSums(dcf[,2:length(a)])
