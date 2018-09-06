@@ -61,7 +61,7 @@ cat_var_names
 #Categorical variables treatment
 ######################################################################################################################################################
 #Steps
-#Replace missing values as "Unknown" in categorical variables 
+#Replace missing values as "Missing" in categorical variables 
 #Check for categorical variables with more than 52 levels and reduce them to the top 10 levels that occur frequently 
 
 #convert categorical variables to factors
@@ -74,7 +74,7 @@ for(j in cat_var_names)
 #sapply(data,class)
 
 
-#Identify replace the missing values as Unknown in categorical variables
+#Identify replace the missing values as Missing in categorical variables
 df_cat <- data[,sapply(data,is.factor)]
 #names(df_cat)
 #View(df_cat)
@@ -85,18 +85,18 @@ for (i in 1:ncol(df_cat))
   levels <- levels(df_cat[,i])
   #class(levels)  
   
-  if('Unknown' %in% levels)
+  if('Missing' %in% levels)
   {}else{
-    levels[length(levels) + 1] <- 'Unknown'
+    levels[length(levels) + 1] <- 'Missing'
     df_cat[,i] <- factor(df_cat[,i], levels = levels)          
   }
   
-  # refactor to include "Unknown" as a factor level
-  # and replace NA, null and blanks with "Unknown"
+  # refactor to include "Missing" as a factor level
+  # and replace NA, null and blanks with "Missing"
   df_cat[,i] <- factor(df_cat[,i], levels = levels)
-  df_cat[,i][is.na(df_cat[,i])] <- "Unknown"
-  df_cat[,i][is.null(df_cat[,i])] <- "Unknown"
-  df_cat[,i] <- sub("^$", "Unknown", df_cat[,i])
+  df_cat[,i][is.na(df_cat[,i])] <- "Missing"
+  df_cat[,i][is.null(df_cat[,i])] <- "Missing"
+  df_cat[,i] <- sub("^$", "Missing", df_cat[,i])
   df_cat[,i]<-as.factor(df_cat[,i])
 }
 
@@ -112,7 +112,7 @@ for(i in names(df_cat))
   if (uniq_lvls_cnt>52)
   { temp<-data.frame()
   cat_freq_cnt <- data.frame(table(column))
-  cat_freq_cnt <- cat_freq_cnt[ which(cat_freq_cnt$column!='Unknown' ),]
+  cat_freq_cnt <- cat_freq_cnt[ which(cat_freq_cnt$column!='Missing' ),]
   cat_sort <- cat_freq_cnt[order(-cat_freq_cnt$Freq),]
   top_1<-head(cat_sort,10)
   top<-as.character(top_1[,1])
@@ -124,9 +124,9 @@ for(i in names(df_cat))
   levels=as.character(levels)
   temp <- factor(temp, levels = levels)          
   
-  if('Unknown' %in% levels)
+  if('Missing' %in% levels)
   {}else{
-    levels[length(levels) + 1] <- 'Unknown'
+    levels[length(levels) + 1] <- 'Missing'
     temp <- factor(temp, levels = levels)          
   }
   
@@ -138,7 +138,7 @@ for(i in names(df_cat))
       temp<-rbind(temp,as.character(value))
     }else
     { 
-      temp<-rbind(temp,'Unknown')
+      temp<-rbind(temp,'Missing')
     }
   }}
   df_cat[,i]<-temp
