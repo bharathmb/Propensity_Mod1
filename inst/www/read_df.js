@@ -9,7 +9,7 @@ $(document).ready(function(){
       file : filename
     }, function(session){
       //on success call printsummary()
-      printsummary(session);
+      printsummary(session,dvname);
     });
     
     //if R returns an error, alert the error message
@@ -24,11 +24,12 @@ $(document).ready(function(){
   }    
   
   
-  function printsummary(mydata){
+  function printsummary(mydata, dvname){
 	  alert("inside printsummary....");
     //perform the request
     var req = ocpu.call("printsummary", {
-      df_full : mydata
+      "df_full" : mydata,
+	"dvname" : dvname
     }, function(session){
       session.getConsole(function(output){
         $("#output code").text(output);	
