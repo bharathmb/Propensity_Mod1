@@ -4,7 +4,7 @@
 #' 
 #' @export
 #' @param df_full some object or dataset
-printsummary <- function(df_full){
+printsummary <- function(df_full, dvname){
   #override default 
   options(max.print=99999999);
   options(width=120);
@@ -15,15 +15,14 @@ clean_df<-function(inp_df)
 data<-inp_df
 
 #consider target variable name given as input in HybridFS function as DV'
-n <- readline(prompt="Enter Target variable name: ")
-names(data)[names(data)==n] <- "DV"
+names(data)[names(data)==dvname] <- "DV"
 #names(data)[names(data)==target.var.name] <- "DV" 
 
 #get the list of categorical variables
 cat_var=data.frame()
 
-df_temp<-read.csv("train1.csv",stringsAsFactors = FALSE)
-df_temp<-df_temp[, names(df_temp) != n] 
+df_temp<-inp_df
+df_temp<-df_temp[, names(df_temp) != dvname] 
 
 
 char <- df_temp[,sapply(df_temp,is.character)]
