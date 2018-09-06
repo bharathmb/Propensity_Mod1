@@ -8,7 +8,7 @@ $(document).ready(function(){
     var req = ocpu.call("read_csv", {
       file : filename
     }, function(session){
-		$("#status").text("Wait till I clean it! for you");
+		$("#status1").text("Wait till I clean it! for you");
       //on success call printsummary()
       printsummary(session,dvname);
     });
@@ -34,12 +34,12 @@ $(document).ready(function(){
     }, function(session){
       session.getConsole(function(output){
         $("#output code").text(output);	
-		$("#status").text("Cleaning Successful! Setting up the results");
+		$("#status1").text("Cleaning Successful! Setting up the results");
 	
 		//FUNCTION CALLS TO SIGNIFICANT VARIABLE LIST & GRAPHS PLOTS
 	  plot_graph();
       	  add_var_list();
-		  $("#status").text("Hurray! Go on and look at the results now...");
+		  $("#status1").text("Hurray! Go on and look at the results now...");
     }).fail(function(){
       alert("Server error: " + req.responseText);
     });        
@@ -189,7 +189,7 @@ $(document).ready(function(){
       return;
     }
 	
-	$("#status").text("Reading the CSV...");	
+	$("#status1").text("Reading the CSV...");	
   
 	uploadcsv(filename); 
   });
