@@ -132,7 +132,7 @@ $(document).ready(function(){
 				
 				//var req = $("#plotdiv").rplot("randomplot", {	nfield : 100, distfield : "normal" , title : data})
 				
-				var req = $("#plotdiv").rplot("variable_profiling_function", {"dv" : dvname, "var": data});
+				var req = $("#plotdiv").rplot("variable_profiling_function", {dv : dvname, var: data});
 				
 				//if R returns an error, alert the error message
 				req.fail(function(){
