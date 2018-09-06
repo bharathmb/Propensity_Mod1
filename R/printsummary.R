@@ -295,7 +295,7 @@ return(final_data_after_processing)
   
     ##Calling the Data Cleaning function HERE!!
    #df_full<-clean_df(df_full);
-    write.csv(df_full,"C:/opencpuapp_ip/data_after_binning.csv");
+    write.csv(df_full,"C:/opencpuapp_ip/cleaned_data");
 	
   ## 80% of the sample size
   smp_size <- floor(0.8 * nrow(df_full))
