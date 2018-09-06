@@ -1,6 +1,6 @@
 
 variable_profiling_function  <- function(dv, var) {
-dat = read.csv("c:/opencpuapp_ip/cleaned_data.csv")
+dat = read.csv("c:/opencpuapp_ip/data_after_binning.csv")
 var1 = dat[,var]
 dv = dat[,dv]
   
