@@ -1,7 +1,7 @@
 $(document).ready(function(){
   
   function uploadcsv(filename){
-	 alert("inside uploadcsv....");
+	 //alert("inside uploadcsv....");
     //disable the button during upload
     $("#submitbutton").attr("disabled", "disabled");  
     //perform the request
@@ -26,7 +26,7 @@ $(document).ready(function(){
   
   
   function printsummary(mydata){
-	  alert("inside printsummary....");
+	  //alert("inside printsummary....");
     //perform the request
     var req = ocpu.call("printsummary", {
       "df_full" : mydata,
@@ -56,22 +56,23 @@ $(document).ready(function(){
 			function(session){
 				session.getObject(function(data){
 				//$("#output code").text(data);	
-				alert("imp_var_list ends: trying to append" );
+				//alert("imp_var_list ends: trying to append" );
 				
 				for (var i=0; i < data.length;++i)
 				{
-					alert("inside_for " + i);
+					//alert("inside_for " + i);
 					var x = document.getElementById("DropList");
 					var option = document.createElement("option");
 					option.text = data[i];
 					
 					x.add(option);
 					
-					alert("option " + i + " added")
+					//alert("option " + i + " added")
 					
 					//addOption(document.DropList, data[i], data[i]);
 					
 				}
+					$("#status1").text("Hurray! Go on and look at the results now...");
 				document.getElementById('DropList').onchange = function () {
 					//document.getElementById("message").innerHTML = "Having a Baby!!";
 					var x = document.getElementById("DropList").selectedIndex;
@@ -92,12 +93,12 @@ $(document).ready(function(){
 	
 		//VAR LIST CALL ENDS
 		
-		//Adding COde for Significant variables graph
+		//Adding Code for Significant variables graph
 				function plot_graph()
 			{
-				alert("inside Plot graph");
+				//alert("inside Plot graph");
 				
-				var req = $("#plotdiv1").rplot("randomplot", {	nfield : 100, distfield : "normal"})
+				//var req = $("#plotdiv1").rplot("randomplot", {	nfield : 100, distfield : "normal"})
 				
 				var req = $("#plotdiv1").rplot("top_var_graph", {"target.var.name" : dvname});
 				
@@ -112,31 +113,16 @@ $(document).ready(function(){
 				});
 				alert("plotted");
 		
-			// var req = ocpu.call("top_var_graph", {
-			//	"target.var.name" : dvname;
-			//}, 
-			//function(session){
-			//	session.getObject(function(data){
-			//	//$("#output code").text(data);	
-			//	alert("trying to plot" );
-			//	$("#plotdiv").rplot(req);
-            //
-			//	}).fail(function(){
-			//		alert("R returned an error in graph: " + req.responseText);
-			//		});
-			//	});
-				
-			}
+
 			//SIGNIFICANT GRAPH CALL ENDS
 	
-		function plot_graph_variable(data)
+		function plot_graph_variable(tar)
 			{
 				alert("inside variable Plot graph");
 				
 				//var req = $("#plotdiv").rplot("randomplot", {	nfield : 100, distfield : "normal" , title : data})
 				
-				var req = $("#plotdiv").rplot("variable_profiling_function", {dv : dvname, var: data});
-				 $("#status1").text("Hurray! Go on and look at the results now...");
+				var req = $("#plotdiv").rplot("variable_profiling_function", {dv : dvname, var: tar});
 				
 				//if R returns an error, alert the error message
 				req.fail(function(){
@@ -147,21 +133,7 @@ $(document).ready(function(){
 				req.always(function(){
 				$("#submitbutton").removeAttr("disabled")
 				});
-				alert("plotted");
-		
-			// var req = ocpu.call("top_var_graph", {
-			//	"target.var.name" : dvname;
-			//}, 
-			//function(session){
-			//	session.getObject(function(data){
-			//	//$("#output code").text(data);	
-			//	alert("trying to plot" );
-			//	$("#plotdiv").rplot(req);
-            //
-			//	}).fail(function(){
-			//		alert("R returned an error in graph: " + req.responseText);
-			//		});
-			//	});
+				//alert("plotted");
 				
 			}
 		
