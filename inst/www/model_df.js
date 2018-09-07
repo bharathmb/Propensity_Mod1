@@ -34,7 +34,7 @@ $(document).ready(function(){
 		 isChecked="select-7"
 		}
 		
-		alert(isChecked);
+		//alert(isChecked);
 
 		
     //perform the request
