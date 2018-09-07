@@ -10,7 +10,7 @@ $(document).ready(function(){
     }, function(session){
 		$("#status1").text("Wait till I clean it for you!");
       //on success call printsummary()
-      printsummary(session,dvname);
+      printsummary(session);
     });
     
     //if R returns an error, alert the error message
@@ -25,7 +25,7 @@ $(document).ready(function(){
   }    
   
   
-  function printsummary(mydata, dvname){
+  function printsummary(mydata){
 	  alert("inside printsummary....");
     //perform the request
     var req = ocpu.call("printsummary", {
