@@ -4,6 +4,8 @@ $(document).ready(function(){
     
 	alert("inside Ensemble Model....");
 	    $("#downloadbutton").attr("disabled", "disabled");  
+	  
+	  $("#status1").text("Scoring in progress...");
 	
 	//Check which model is selected
 	var dvname=$("#dvname").val()
@@ -43,7 +45,7 @@ $(document).ready(function(){
     var req = ocpu.call("scoring_module", {
 	    "oos_path":oos_path, "DV" : dvname, "model_selection" :  isChecked
     }, function(session){
-		$("#output code2").text("Hurray! Scoring Completed... Find the results in c:/opencpuip_app/scored_dataset.csv");	
+		$("#status2").text("Hurray! Scoring Completed... Find the results in c:/opencpuip_app/scored_dataset.csv");	
 		//get results and display
 		alert("Scoring Done");
 		
