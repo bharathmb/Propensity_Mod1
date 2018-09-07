@@ -6,7 +6,8 @@ top_var_graph <- function(target.var.name){
   data<-data[ , !(names(data) %in% drops)]
   
   names(data)[names(data)==target.var.name] <- "DV"
-  options(java.parameters = "-Xmx1g")
+  #options(java.parameters = "-Xmx1g")
+  options(java.home="C:\\Program Files\\Java\\jre1.8.0_181\\")
   data$DV<- as.integer(data$DV)
   options(warn=-1)  
   
