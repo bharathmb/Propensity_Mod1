@@ -1,5 +1,9 @@
 imp_var_list<- function(target.var.name){
+
   data<- read.csv("C:/opencpuapp_ip/cleaned_data.csv")
+  
+  drops <- c("X")
+  data<-data[ , !(names(data) %in% drops)]
   
   names(data)[names(data)==target.var.name] <- "DV"
   options(java.parameters = "-Xmx1g")
