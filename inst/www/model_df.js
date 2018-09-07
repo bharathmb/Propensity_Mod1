@@ -2,8 +2,10 @@ $(document).ready(function(){
   
   $("#show_perf").on("click", function(){
     
-	alert("inside Ensemble Model....");
+	//alert("inside Ensemble Model....");
 	    $("#show_perf").attr("disabled", "disabled");  
+	  
+	   $("#status3").text("Setting up Train & Test...");
 	
 	//Check which model is selected
 	var dvname=$("#dvname").val()
@@ -39,10 +41,11 @@ $(document).ready(function(){
 		
     //perform the request
     var req = ocpu.call("modelling_module", {
+	    $("#status3").text("Training the Model... Will be ready in a jiffy!");
       "DV" : dvname, "model_selection" :  isChecked
     }, function(session){
 		//get results and display
-		alert("Model Done");
+		$("#status3").text("Model Completed! Go check the results now");
     });
     
     //if R returns an error, alert the error message
