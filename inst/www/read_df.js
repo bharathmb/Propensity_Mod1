@@ -69,12 +69,9 @@ $(document).ready(function(){
 					
 					//alert("option " + i + " added")
 					
-					//addOption(document.DropList, data[i], data[i]);
-					
 				}
 					$("#status1").text("Hurray! Go on and look at the results now...");
 				document.getElementById('DropList').onchange = function () {
-					//document.getElementById("message").innerHTML = "Having a Baby!!";
 					var x = document.getElementById("DropList").selectedIndex;
 					var y = document.getElementById("DropList").options;
 					
@@ -112,6 +109,7 @@ $(document).ready(function(){
 				$("#submitbutton").removeAttr("disabled")
 				});
 				alert("plotted");
+			}
 		
 
 			//SIGNIFICANT GRAPH CALL ENDS
