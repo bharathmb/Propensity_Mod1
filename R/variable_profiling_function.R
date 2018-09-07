@@ -11,7 +11,6 @@ variable_profiling_function  <- function(dv, var) {
   smp_size <- floor(0.8 * nrow(dat))
   
   ## set the seed to make your partition reproducible
-  library(
   set.seed(123)
   train_ind <- sample(seq_len(nrow(dat)), size = smp_size)
   
