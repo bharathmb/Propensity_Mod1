@@ -144,8 +144,9 @@ top_var_graph <- function(target.var.name){
   
   ##RESULTS
   
-  data_binned <- dataBinning(data)
-  write.csv(data_binned,"c:/opencpuapp_ip/data_after_binning.csv")
+  data_binned1 <- dataBinning(data)
+  names(data_binned1)[names(data_binned1)=="DV"] <- target.var.name
+  write.csv(data_binned1,"c:/opencpuapp_ip/data_after_binning.csv")
   
   allFiltRes <- univFiltRes(data_binned)
   
