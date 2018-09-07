@@ -9,8 +9,8 @@ modelling_module<-function(DV,model_selection)
 	test<-read.csv("C:/opencpuapp_ip/test_comp.csv")
 	
 	drops <- c("X")
-	train<-dat[ , !(names(train) %in% drops)]
-	test<-dat[ , !(names(test) %in% drops)]	
+	train<-train[ , !(names(train) %in% drops)]
+	test<-test[ , !(names(test) %in% drops)]	
   
   model_evaluations<-setNames(data.frame(matrix(ncol = 9, nrow = 9)), c("tpr","fpr","tnr","fnr","recall","precision","f1score","accuracy","roc"))
   rownames(model_evaluations)<-c("lr","rf_rose","rf_over","rf_under","rf_both","gbm","svm","nn","nb")
