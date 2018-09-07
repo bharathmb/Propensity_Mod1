@@ -5,7 +5,7 @@ $(document).ready(function(){
 	alert("inside Ensemble Model....");
 	    $("#downloadbutton").attr("disabled", "disabled");  
 	  
-	  $("#status1").text("Scoring in progress...");
+	  $("#status2").text("Scoring in progress...");
 	
 	//Check which model is selected
 	var dvname=$("#dvname").val()
