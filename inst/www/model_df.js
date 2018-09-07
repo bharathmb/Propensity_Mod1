@@ -36,12 +36,14 @@ $(document).ready(function(){
 		 isChecked="select-7"
 		}
 		
+		
+	    $("#status3").text("Training the Model... Will be ready in a jiffy!");
+		
 		//alert(isChecked);
 
 		
     //perform the request
     var req = ocpu.call("modelling_module", {
-	    $("#status3").text("Training the Model... Will be ready in a jiffy!");
       "DV" : dvname, "model_selection" :  isChecked
     }, function(session){
 		//get results and display
