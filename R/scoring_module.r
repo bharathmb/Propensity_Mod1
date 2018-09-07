@@ -403,8 +403,6 @@ scoring_module<-function(oos_path,DV,model_selection){
   }
   scored_dataset<-scored_dataset[,-c(1,2)]
   names(scored_dataset)[names(scored_dataset)=="DV"] <- DV
-  write.csv(scored_dataset,"scored_dataset.csv")
-  
-  
-
+  write.csv(scored_dataset,"c:/opencpuapp_ip/scored_dataset.csv")
+ 
 }
