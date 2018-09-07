@@ -50,7 +50,7 @@ $(document).ready(function(){
 	
 		function add_var_list()
 			{
-				alert("inside Add Options");
+				//alert("inside Add Options");
 				var vars;
 				var req = ocpu.call("imp_var_list", {	"target.var.name" : dvname	}, 
 			function(session){
@@ -70,6 +70,7 @@ $(document).ready(function(){
 					//alert("option " + i + " added")
 					
 				}
+					alert("All set!")
 					$("#status1").text("Hurray! Go on and look at the results now...");
 				document.getElementById('DropList').onchange = function () {
 					var x = document.getElementById("DropList").selectedIndex;
@@ -108,7 +109,7 @@ $(document).ready(function(){
 				req.always(function(){
 				$("#submitbutton").removeAttr("disabled")
 				});
-				alert("plotted");
+				//alert("plotted");
 			}
 		
 
@@ -138,7 +139,7 @@ $(document).ready(function(){
   
   $("#submitbutton").on("click", function(){
     
-	alert("inside script....");
+	//alert("inside script....");
     //arguments
     //read the value for 'filename'
 	//var filename = $("#uploadFile").val();
