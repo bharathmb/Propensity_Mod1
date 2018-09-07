@@ -5,6 +5,10 @@ scoring_module<-function(oos_path,DV,model_selection){
   
   train<-read.csv("C:/opencpuapp_ip/train_comp.csv")
   test<-read.csv(oos_path)
+  
+  drops <- c("X")
+	train<-train[ , !(names(train) %in% drops)]
+  test<-test[ , !(names(test) %in% drops)]
 
   k_stat_value<- function(fullmodel,train,test,flag){
     n=10
