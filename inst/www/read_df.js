@@ -117,7 +117,7 @@ $(document).ready(function(){
 	
 		function plot_graph_variable(tar)
 			{
-				alert("inside variable Plot graph");
+				//alert("inside variable Plot graph");
 				
 				//var req = $("#plotdiv").rplot("randomplot", {	nfield : 100, distfield : "normal" , title : data})
 				
